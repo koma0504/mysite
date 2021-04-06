@@ -1,7 +1,6 @@
 // pages/index.js
 import Link from 'next/link';
 import Head from 'next/Head';
-import Image from 'next/image';
 
 
 export default function Home({ blog }) {
