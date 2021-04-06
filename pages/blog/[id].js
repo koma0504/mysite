@@ -1,5 +1,6 @@
 import styles from '../../styles/Home.module.scss'
 
+// pages/blog/[id].js
 export default function BlogId({ blog }) {
 	return (
 		<main className={styles.main}>
@@ -14,12 +15,13 @@ export default function BlogId({ blog }) {
 		</main>
 	);
 }
+
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
 	const key = {
 		headers: { 'X-API-KEY': process.env.API_KEY },
 	};
-	const data = await fetch('https://ratio-observatory.microcms.io/api/v1/blog', key)
+	const data = await fetch('https://ratio-observatory.microcms.io/api/v1/contents', key)
 		.then(res => res.json())
 		.catch(() => null);
 	const paths = data.contents.map(content => `/blog/${content.id}`);
@@ -33,7 +35,7 @@ export const getStaticProps = async context => {
 		headers: { 'X-API-KEY': process.env.API_KEY },
 	};
 	const data = await fetch(
-		'https://ratio-observatory.microcms.io/api/v1/blog/' + id,
+		'https://ratio-observatory.microcms.io/api/v1/contents/' + id,
 		key,
 	)
 		.then(res => res.json())
