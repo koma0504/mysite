@@ -2,10 +2,8 @@
 import Link from 'next/link';
 import Head from 'next/Head';
 
-
 export default function Home({ blog }) {
 	console.log(blog)
-
 	return (
 		<div>
 			<Head>
@@ -16,8 +14,7 @@ export default function Home({ blog }) {
 			<ul>
 				{blog.map(blog => (
 					<li key={blog.id}>
-						{/* <Image alt="aaa" src={`${blog.thumbnail.url}`} width={400} height={200} /> */}
-						<img src={`${blog.thumbnail.url}`} />
+						<img src={`${blog.thumbnail.url}`}></img>
 						<Link href={`blog/${blog.id}`}>
 							<a>{blog.title}</a>
 						</Link>
@@ -25,7 +22,7 @@ export default function Home({ blog }) {
 				))}
 			</ul>
 			<footer>footer</footer>
-		</div >
+		</div>
 	);
 }
 
