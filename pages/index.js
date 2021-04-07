@@ -1,9 +1,10 @@
 // pages/index.js
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image'
 
 export default function Home({ blog }) {
-	console.log(blog)
+	console.log({ blog })
 	return (
 		<div>
 			<Head>
@@ -15,13 +16,22 @@ export default function Home({ blog }) {
 			<ul>
 				{blog.map(blog => (
 					<li key={blog.id}>
-						<img src={`${blog.thumbnail.url}`}></img>
+						<img src={`${blog.thumbnail.url}`} />
+						{/* <Image src="https://images.microcms-assets.io/assets/710995afcd1b456ea275f373af369f39/49006d2e547f4377a67b5cca9fe02370/sp_icon_information.png " width={100}
+							height={100} /> */}
+						{/* <Image
+								src={blog.thumbnail.url}
+								width={100}
+								height={100} /> */}
+
 						<Link href={`blog/${blog.id}`}>
 							<a>{blog.title}</a>
 						</Link>
 					</li>
 				))}
 			</ul>
+			<Image src="/dog.jpg" width={100} height={100} />
+			<Image src="/vercel.svg" width={100} height={100} />
 			<footer>footer</footer>
 		</div>
 	);
