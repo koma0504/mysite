@@ -1,7 +1,8 @@
 // pages/index.js
 import Link from 'next/link';
 import Head from 'next/head';
-import Image from 'next/image'
+import Image from 'next/image';
+import styles from '../styles/Home.module.scss'
 
 export default function Home({ blog }) {
 	console.log({ blog })
@@ -12,17 +13,19 @@ export default function Home({ blog }) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="description" content="ポートフォリオサイトです" />
 			</Head>
-			<header>header</header>
-			<ul>
+			<header>
+				<a id="circle" className={styles.circle} href="javascript:void(0)"> MENU MENU MENU MENU MENU</a>
+			</header>
+			<ul className={styles.inner_l}>
 				{blog.map(blog => (
 					<li key={blog.id}>
-						<img src={`${blog.thumbnail.url}`} />
+						{/* <img src={`${blog.thumbnail.url}`} /> */}
 						{/* <Image src="https://images.microcms-assets.io/assets/710995afcd1b456ea275f373af369f39/49006d2e547f4377a67b5cca9fe02370/sp_icon_information.png " width={100}
 							height={100} /> */}
 						{/* <Image
-								src={blog.thumbnail.url}
-								width={100}
-								height={100} /> */}
+							src={blog.thumbnail.url}
+							width={100}
+							height={100} /> */}
 
 						<Link href={`blog/${blog.id}`}>
 							<a>{blog.title}</a>
@@ -35,6 +38,7 @@ export default function Home({ blog }) {
 			<footer>footer</footer>
 		</div>
 	);
+
 }
 
 

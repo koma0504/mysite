@@ -39,3 +39,15 @@
     list-style-position: inside;
   }
 }
+.circle {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top: 5%;
+  right: 5%;
+  font-size: 24px;
+  z-index: 9998;
+  transform-origin: center;
+  transform: rotate(0deg);
+  filter: drop-shadow(2px 4px 6px black);
+}
