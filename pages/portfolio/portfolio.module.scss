@@ -1,0 +1,18 @@
+.title {
+	font-size: var(--font-xxl);
+	text-align: center;
+}
+
+.post {
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 24px;
+
+		img {
+			object-fit: contain;
+			width: calc(100% / 3 - 48px);
+		}
+	}
+}
