@@ -1,7 +1,12 @@
+import { Header } from "../components/Header/Header";
+
 export default function Custom404() {
 	return (
-		<main className="main">
-			<p>about</p>
-		</main>
+		<div className="body">
+			<Header title="about" />
+			<main className="main">
+				<p>about</p>
+			</main>
+		</div>
 	);
 }

@@ -6,7 +6,7 @@ import styles from "./portfolio.module.scss";
 export default function BlogId({ blog }) {
 	return (
 		<div className="body">
-			<Header />
+			<Header title={blog.title} />
 			<main className={styles.main}>
 				<h1 className={styles.title}>{blog.title}</h1>
 				<div

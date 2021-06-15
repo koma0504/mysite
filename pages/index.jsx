@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer/Footer";
 export default function Home({ blog }) {
 	return (
 		<div className="body">
-			<Header />
+			<Header title="RATIO OBSERVER" />
 			<main className="main">
 				<section className="about">
 					<h2 className="title">ABOUT</h2>

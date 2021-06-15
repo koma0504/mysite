@@ -2,11 +2,11 @@ import Link from "next/link";
 import Head from "next/head";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-export function Header({ title }) {
+export function Header(props) {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>ratio-observer{title}</title>
+				<title>{props.title} | RATIO OBSERVER</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="description" content="ポートフォリオサイトです" />
 				<link
