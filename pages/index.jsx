@@ -4,21 +4,29 @@ import Image from "next/image";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { useCallback } from "react"; //再生成を防ぐ
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home({ blog }) {
-	let foo = 123;
-	const hendleClick = useCallback((e) => {
-		e.preventDefault();
-		alert(foo);
-	}, []);
-
+	const [count, setCount] = useState(1);
+	const hendleClick = (e) => {
+		setCount((count) => count + 1);
+	};
+	console.log("count", count);
+	// useEffect(() => {
+	// 	console.log("マウント時");
+	// 	return () => {
+	// 		console.log("アンマウント時");
+	// 	};
+	// }, []);
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
-				<a href="/about" onClick={hendleClick}>
+				<h1>{count}</h1>
+				<botton href="/about" onClick={hendleClick}>
 					btn
-				</a>
+				</botton>
 
 				<section className="about">
 					<h2 className="title">ABOUT</h2>
