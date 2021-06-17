@@ -9,16 +9,19 @@ import { useState } from "react";
 
 export default function Home({ blog }) {
 	const [count, setCount] = useState(1);
-	const hendleClick = (e) => {
-		setCount((count) => count + 1);
-	};
-	console.log("count", count);
-	// useEffect(() => {
-	// 	console.log("マウント時");
-	// 	return () => {
-	// 		console.log("アンマウント時");
-	// 	};
-	// }, []);
+	const hendleClick = useCallback(() => {
+		console.log(count);
+		if (count < 10) {
+			setCount((count) => count + 1);
+		}
+	}, [count]);
+
+	useEffect(() => {
+		console.log("マウント時");
+		return () => {
+			console.log("アンマウント時");
+		};
+	}, [count]);
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
