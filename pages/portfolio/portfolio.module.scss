@@ -5,14 +5,19 @@
 
 .post {
 	p {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 24px;
-
+		margin: 0 auto;
+		padding: 5px;
+		column-count: 4;
+		gap: 16px;
 		img {
-			object-fit: contain;
-			width: calc(100% / 3 - 48px);
+			margin: 16px;
+			margin-top: 0;
+			break-inside: avoid;
+			box-shadow: 8px 12px 10px -6px rgba(0, 0, 0, 0.3);
+			display: inline-block;
 		}
 	}
+}
+.mySwiper {
+	display: none;
 }

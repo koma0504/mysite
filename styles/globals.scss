@@ -15,7 +15,29 @@ html {
 		"Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 	display: grid;
 	gap: clamp(24px, 8vw, 120px);
+	width: 100%;
+	min-width: 1200px;
+	background-color: #4a4a50;
+	color: #e8e8e8;
+	letter-spacing: 0.3rem;
+	font-feature-settings: normal;
 }
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+// a:hover,
+// a:visited,
+// a:focus {
+// 	color: #75c8ce;
+// 	text-decoration: none;
+// }
+
+// a:active {
+// 	color: #75c8ce;
+// 	background-color: #75c8ce;
+// }
 .main {
 	display: grid;
 	gap: clamp(24px, 8vw, 120px);
@@ -32,22 +54,41 @@ html {
 	padding: 32px 0;
 }
 .header {
-	.logo {
-		font-size: var(--font-xxl);
-		text-align: center;
-		padding: 40px 0;
-		letter-spacing: 1rem;
-		font-weight: normal;
-	}
+	width: 100%;
+	min-width: 1200px;
 	.nav {
-		width: fit-content;
-		margin: 40px auto;
+		width: 100%;
+		margin: 0 auto;
+		padding: 40px 0 24px 0;
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 9999;
+		mix-blend-mode: difference;
+		a {
+			color: #fff;
+		}
+		.logo {
+			font-size: var(--font-xxl);
+			text-align: center;
+			letter-spacing: 1rem;
+			font-weight: normal;
+			padding: 0 0 40px 0;
+		}
 		.menu {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			gap: 24px;
 		}
+	}
+}
+.mySwiper {
+	img {
+		object-fit: cover;
+		width: 100vw;
+		height: 100vh;
 	}
 }
 .portfolio {
