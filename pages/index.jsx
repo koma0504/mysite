@@ -8,28 +8,39 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Home({ blog }) {
+	console.log("blog", blog);
+	// useEffect(() => {
+	// 	console.log("マウント時");
+	// 	return () => {
+	// 		console.log("アンマウント時");
+	// 	};
+	// }, [count]);
+
 	const [count, setCount] = useState(1);
 	const hendleClick = useCallback(() => {
-		console.log(count);
 		if (count < 10) {
 			setCount((count) => count + 1);
 		}
-	}, [count]);
+	}, []);
 
-	useEffect(() => {
-		console.log("マウント時");
-		return () => {
-			console.log("アンマウント時");
-		};
-	}, [count]);
+	const [array, setArray] = useState([1, 2, 3]);
+	const handleAdd = useCallback(() => {
+		setArray((prevArray) => {
+			return prevArray;
+		});
+	}, []);
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
 				<h1>{count}</h1>
-				<botton href="/about" onClick={hendleClick}>
-					btn
-				</botton>
+				<botton onClick={hendleClick}>カウント</botton>
+				<ul>
+					{array.map((arrayele) => {
+						return <li key={arrayele}>{arrayele}</li>;
+					})}
+				</ul>
+				<botton onClick={handleAdd}>増えるよ</botton>
 
 				<section className="about">
 					<h2 className="title">ABOUT</h2>
@@ -43,7 +54,7 @@ export default function Home({ blog }) {
 					<ul className="portfolio_list">
 						{blog.map((blog) => (
 							<li key={blog.title} className="">
-								<Link href={`portfolio/${blog.title}`}>
+								<Link href={`/portfolio/${blog.title}`}>
 									<a>
 										<p className="">{blog.title}</p>
 										{<Image src={blog.thumbnail.url} width={300} height={200} />}

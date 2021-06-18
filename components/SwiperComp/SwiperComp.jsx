@@ -15,7 +15,8 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper/core";
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-export function SwiperComp() {
+export function SwiperComp(slide) {
+	console.log("slide", slide);
 	return (
 		<>
 			<Swiper
