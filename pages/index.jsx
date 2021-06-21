@@ -23,25 +23,43 @@ export default function Home({ blog }) {
 		}
 	}, []);
 
-	const [array, setArray] = useState([1, 2, 3]);
+	const [text, setText] = useState("");
+	const hendleText = useCallback((e) => {
+		if (e.target.value.length >= 5) {
+			alert("五文字以内にして下さ");
+			return;
+		}
+		setText(e.target.value);
+	}, []);
+
+	const [array, setArray] = useState([]);
 	const handleAdd = useCallback(() => {
 		setArray((prevArray) => {
-			return prevArray;
+			const newArray = [...prevArray, 1];
+			return newArray;
 		});
+	}, []);
+
+	const [isShow, setIsShow] = useState(true);
+	const handleDisplay = useCallback(() => {
+		setIsShow((isShow) => !isShow);
 	}, []);
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
-				<h1>{count}</h1>
+				<button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
+				{isShow ? <h1>{count}</h1> : null}
+
 				<botton onClick={hendleClick}>カウント</botton>
+				<botton onClick={handleAdd}>増えるよ</botton>
+
 				<ul>
 					{array.map((arrayele) => {
 						return <li key={arrayele}>{arrayele}</li>;
 					})}
 				</ul>
-				<botton onClick={handleAdd}>増えるよ</botton>
-
+				<input type="text" value={text} onChange={hendleText} />
 				<section className="about">
 					<h2 className="title">ABOUT</h2>
 					<p className="inner">
