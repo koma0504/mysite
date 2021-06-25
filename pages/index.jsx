@@ -6,22 +6,31 @@ import { Footer } from "../components/Footer/Footer";
 import { useCallback } from "react"; //再生成を防ぐ
 import { useEffect } from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function Home({ blog }) {
-	console.log("blog", blog);
-	// useEffect(() => {
-	// 	console.log("マウント時");
-	// 	return () => {
-	// 		console.log("アンマウント時");
-	// 	};
-	// }, [count]);
-
+const useCount = () => {
 	const [count, setCount] = useState(1);
 	const hendleClick = useCallback(() => {
 		if (count < 10) {
 			setCount((count) => count + 1);
 		}
 	}, []);
+	const [isShow, setIsShow] = useState(true);
+	const handleDisplay = useCallback(() => {
+		setIsShow((isShow) => !isShow);
+	}, []);
+
+	return { count, hendleClick, isShow, handleDisplay };
+};
+
+export default function Home({ blog }) {
+	const { count, hendleClick, isShow, handleDisplay } = useCount();
+	useEffect(() => {
+		console.log("マウント時");
+		return () => {
+			console.log("アンマウント時");
+		};
+	}, [count]);
 
 	const [text, setText] = useState("");
 	const hendleText = useCallback((e) => {
@@ -39,16 +48,23 @@ export default function Home({ blog }) {
 			return newArray;
 		});
 	}, []);
+	const list = {
+		visible: {
+			opacity: 1,
+			transition: { when: "beforeChildren", staggerChildren: 0.3 },
+		},
+		hidden: { opacity: 0 },
+	};
+	const item = {
+		visible: { opacity: 1, x: 0 },
+		hidden: { opacity: 0, x: -100 },
+	};
 
-	const [isShow, setIsShow] = useState(true);
-	const handleDisplay = useCallback(() => {
-		setIsShow((isShow) => !isShow);
-	}, []);
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
-				<button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
+				{/* <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
 				{isShow ? <h1>{count}</h1> : null}
 
 				<botton onClick={hendleClick}>カウント</botton>
@@ -59,13 +75,20 @@ export default function Home({ blog }) {
 						return <li key={arrayele}>{arrayele}</li>;
 					})}
 				</ul>
-				<input type="text" value={text} onChange={hendleText} />
+				<input type="text" value={text} onChange={hendleText} /> */}
+				{/* <motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ ease: "easeOut", duration: 1 }}
+				> */}
 				<section className="about">
 					<h2 className="title">ABOUT</h2>
 					<p className="inner">
 						TEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなです
 					</p>
 				</section>
+				{/* </motion.div> */}
 				<section className="portfolio">
 					<h2 className="title">PORTFOLIO</h2>
 

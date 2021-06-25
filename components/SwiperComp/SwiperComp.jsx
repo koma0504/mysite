@@ -32,10 +32,10 @@ export function SwiperComp(slide) {
 				className="mySwiper"
 			>
 				<SwiperSlide>
-					<img src="./img/aaaaaaa.jpg" alt="" />
+					<img src="./img/qqq.jpg" alt="" />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="./img/download.jpg" alt="" />
+					<img src="./img/eee.jpg" alt="" />
 				</SwiperSlide>
 			</Swiper>
 		</>

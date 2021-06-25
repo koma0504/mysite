@@ -17,7 +17,9 @@ export function Header(props) {
 						></link>
 					</Head>
 					<header className="header">
-						<Nav />
+						<div className="inner">
+							<Nav />
+						</div>
 						<SwiperComp />
 					</header>
 				</>

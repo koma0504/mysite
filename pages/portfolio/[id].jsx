@@ -8,13 +8,17 @@ export default function BlogId({ blog }) {
 		<div className="body">
 			<Header title={blog.title} />
 			<main className={styles.main}>
-				<h1 className={styles.title}>{blog.title}</h1>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: `${blog.body}`,
-					}}
-					className={styles.post}
-				/>
+				<section>
+					<div className="inner">
+						<h1 className={styles.title}>{blog.title}</h1>
+						<div
+							dangerouslySetInnerHTML={{
+								__html: `${blog.body}`,
+							}}
+							className={styles.post}
+						/>
+					</div>
+				</section>
 			</main>
 			<Footer />
 		</div>
