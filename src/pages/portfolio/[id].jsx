@@ -1,5 +1,5 @@
-import { Footer } from "../../components/Footer/Footer";
-import { Header } from "../../components/Header/Header";
+import { Footer } from "../../src/components/Footer/Footer";
+import { Header } from "../../src/components/Header/Header";
 import styles from "./portfolio.module.scss";
 
 // pages/blog/[id].js

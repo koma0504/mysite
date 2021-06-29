@@ -3,16 +3,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
-
 import { motion } from "framer-motion";
-import { useCount } from "../hooks/useCount";
-import { useInputArray } from "../hooks/useInputArray";
-import { useConsole } from "../hooks/useConsole";
 
-export default function Home({ blog }) {
-	const { count, hendleClick, isShow, handleDisplay } = useCount();
-	const { text, hendleText, array, handleAdd } = useInputArray();
-	useConsole();
+export default function Home(props, { blog }) {
+	const {
+		text,
+		hendleText,
+		array,
+		handleAdd,
+		count,
+		hendleClick,
+		isShow,
+		handleDisplay,
+	} = props;
+	console.log("props", props);
 
 	const list = {
 		visible: {
@@ -51,7 +55,7 @@ export default function Home({ blog }) {
 				<section className="portfolio">
 					<h2 className="title">PORTFOLIO</h2>
 
-					<ul className="portfolio_list">
+					{/* <ul className="portfolio_list">
 						{blog.map((blog) => (
 							<li key={blog.title} className="">
 								<Link href={`/portfolio/${blog.title}`}>
@@ -62,7 +66,7 @@ export default function Home({ blog }) {
 								</Link>
 							</li>
 						))}
-					</ul>
+					</ul> */}
 				</section>
 			</main>
 			<Footer />
