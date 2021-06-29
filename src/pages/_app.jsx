@@ -1,6 +1,6 @@
-import "../styles/reset.css";
-import "../styles/globals.scss";
-import { AnimatePresence } from "framer-motion";
+import "../styles/reset.scss";
+import "../styles/global.scss";
+import { motion, AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps, router }) {
 	return (

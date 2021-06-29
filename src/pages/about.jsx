@@ -1,6 +1,6 @@
 import { Header } from "../components/Header/Header";
 
-export default function Custom404() {
+export default function about() {
 	return (
 		<div className="body">
 			<Header title="about" />

@@ -11,6 +11,7 @@ html {
 	--font-xxl: 4rem;
 }
 .body {
+	font-size: 62.5%;
 	font: 400 var(--font-m) "Raleway", "Open Sans", "Helvetica Neue", Arial,
 		"Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 	display: grid;
@@ -27,17 +28,17 @@ a {
 	text-decoration: none;
 }
 
-// a:hover,
-// a:visited,
-// a:focus {
-// 	color: #75c8ce;
-// 	text-decoration: none;
-// }
+a:hover,
+a:visited,
+a:focus {
+	color: #75c8ce;
+	text-decoration: none;
+}
 
-// a:active {
-// 	color: #75c8ce;
-// 	background-color: #75c8ce;
-// }
+a:active {
+	color: #75c8ce;
+	background-color: #75c8ce;
+}
 .main {
 	display: grid;
 	gap: clamp(24px, 8vw, 120px);
@@ -53,37 +54,7 @@ a {
 	text-align: center;
 	padding: 32px 0;
 }
-.header {
-	width: 100%;
-	min-width: 1200px;
-	.nav {
-		width: 100%;
-		margin: 0 auto;
-		padding: 40px 0 24px 0;
-		position: fixed;
-		top: 0;
-		right: 0;
-		left: 0;
-		z-index: 9999;
-		mix-blend-mode: difference;
-		a {
-			color: #fff;
-		}
-		.logo {
-			font-size: var(--font-xxl);
-			text-align: center;
-			letter-spacing: 1rem;
-			font-weight: normal;
-			padding: 0 0 40px 0;
-		}
-		.menu {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 24px;
-		}
-	}
-}
+
 .mySwiper {
 	img {
 		object-fit: cover;
