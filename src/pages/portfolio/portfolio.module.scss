@@ -1,13 +1,5 @@
-.main {
-	padding: 120px 0 0 0;
-}
-.title {
-	font-size: var(--font-xxl);
-	text-align: center;
-}
-.inner {
-	width: clamp(300px, 90%, 1200px);
-	margin: 0 auto;
+.list {
+	padding: clamp(24px, 8vw, 120px) 0 0 0;
 }
 .post {
 	p {
@@ -23,7 +15,4 @@
 			display: inline-block;
 		}
 	}
-}
-.mySwiper {
-	display: none;
 }

@@ -1,34 +1,24 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectFade, Pagination } from "swiper/core";
 
-// Import Swiper styles
 import "swiper/swiper.min.css";
+import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/navigation/navigation.min.css";
+import styles from "./swiper.module.scss";
 
-// import "./styles.css";
-
-// import Swiper core and required modules
-import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper/core";
-
-// install Swiper modules
-SwiperCore.use([Autoplay, Pagination, Navigation]);
+SwiperCore.use([EffectFade, Pagination]);
 
 export function SwiperComp(slide) {
 	return (
 		<>
 			<Swiper
-				loop={true}
-				centeredSlides={true}
-				// autoplay={{
-				// 	delay: 2500,
-				// 	disableOnInteraction: false,
-				// }}
+				className={styles.my_swiper}
+				spaceBetween={0}
+				effect={"fade"}
 				pagination={{
 					clickable: true,
 				}}
-				className="mySwiper"
+				loop={true}
 			>
 				<SwiperSlide>
 					<img src="./img/qqq.jpg" alt="" />

@@ -1,22 +1,35 @@
-import { Footer } from "../../src/components/Footer/Footer";
-import { Header } from "../../src/components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
+import { Header } from "../../components/Header/Header";
 import styles from "./portfolio.module.scss";
+import { motion } from "framer-motion";
 
 // pages/blog/[id].js
-export default function BlogId({ blog }) {
+export default function BlogId(props) {
 	return (
 		<div className="body">
-			<Header title={blog.title} />
-			<main className={styles.main}>
-				<h1 className={styles.title}>{blog.title}</h1>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: `${blog.body}`,
-					}}
-					className={styles.post}
-				/>
+			<Header title={props.blog.title} />
+			<main className="main">
+				<section className={styles.list}>
+					<h1 className="title">{props.blog.title}</h1>
+					<div
+						dangerouslySetInnerHTML={{
+							__html: `${props.blog.body}`,
+						}}
+						className={styles.post}
+					/>
+				</section>
 			</main>
 			<Footer />
+			<motion.div
+				className="overlay unmount"
+				exit={{ height: "100vh", zIndex: 9999, opacity: 1, visibility: "visible" }}
+			></motion.div>
+			<motion.div
+				className="overlay mount"
+				animate={{
+					top: "-100vh",
+				}}
+			></motion.div>
 		</div>
 	);
 }

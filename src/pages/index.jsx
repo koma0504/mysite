@@ -5,71 +5,49 @@ import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { motion } from "framer-motion";
 
-export default function Home(props, { blog }) {
-	const {
-		text,
-		hendleText,
-		array,
-		handleAdd,
-		count,
-		hendleClick,
-		isShow,
-		handleDisplay,
-	} = props;
-	console.log("props", props);
-
-	const list = {
-		visible: {
-			opacity: 1,
-			transition: { when: "beforeChildren", staggerChildren: 0.3 },
-		},
-		hidden: { opacity: 0 },
-	};
-	const item = {
-		visible: { opacity: 1, x: 0 },
-		hidden: { opacity: 0, x: -100 },
-	};
-
+export default function Home({ blog }) {
 	return (
 		<div className="body">
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
-				<button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
-				{isShow ? <h1>{count}</h1> : null}
-
-				<botton onClick={hendleClick}>カウント</botton>
-				<botton onClick={handleAdd}>増えるよ</botton>
-				<ul>
-					{array.map((arrayele) => {
-						return <li key={arrayele}>{arrayele}</li>;
-					})}
-				</ul>
-				<input type="text" value={text} onChange={hendleText} />
-
 				<section className="about">
-					<h2 className="title">ABOUT</h2>
-					<p className="inner">
-						TEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなです
-					</p>
+					<div className="inner">
+						<h2 className="title">ABOUT</h2>
+						<p className="text_inner">
+							TEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなです
+						</p>
+					</div>
 				</section>
 				<section className="portfolio">
 					<h2 className="title">PORTFOLIO</h2>
-
-					{/* <ul className="portfolio_list">
+					<ul className="portfolio_list">
 						{blog.map((blog) => (
 							<li key={blog.title} className="">
 								<Link href={`/portfolio/${blog.title}`}>
 									<a>
-										<p className="">{blog.title}</p>
+										<motion.p whileHover={{ opacity: 1 }} className="">
+											{blog.title}
+										</motion.p>
+										{/* eslint-disable-next-line jsx-a11y/alt-text */}
 										{<Image src={blog.thumbnail.url} width={300} height={200} />}
 									</a>
 								</Link>
 							</li>
 						))}
-					</ul> */}
+					</ul>
 				</section>
 			</main>
 			<Footer />
+			<motion.div
+				className="overlay unmount"
+				exit={{ height: "100vh", zIndex: 9999, opacity: 1, visibility: "visible" }}
+			></motion.div>
+			<motion.div
+				className="overlay mount"
+				animate={{
+					top: "-100vh",
+				}}
+			></motion.div>
 		</div>
 	);
 }

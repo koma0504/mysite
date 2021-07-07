@@ -22,14 +22,9 @@ ol[role="list"] {
 	list-style: none;
 }
 html:focus-within {
-	scroll-behavior: smooth;
+	// scroll-behavior: smooth;
 }
-body {
-	min-height: 100vh;
-	text-rendering: optimizeSpeed;
-	line-height: 1.5;
-	word-break: break-all;
-}
+
 a:not([class]) {
 	text-decoration-skip-ink: auto;
 }
