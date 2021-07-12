@@ -4,10 +4,35 @@ import Image from "next/image";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useCallback } from "react";
+import { useEffect } from "react";
 
 export default function Home({ blog }) {
+	const [posts, setPosts] = useState([]);
+
+	const getPosts = useCallback(async () => {
+		const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+		const json = await res.json();
+		setPosts(json);
+	}, []);
+
+	useEffect(() => {
+		getPosts();
+	}, [getPosts]);
+
+	console.log(posts);
+
 	return (
 		<div className="body">
+			{posts.length > 0 ? (
+				<ol>
+					{posts.map((post) => {
+						return <li key={post.title}>{post.title}</li>;
+					})}
+				</ol>
+			) : null}
+
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">
 				<section className="about">
@@ -18,6 +43,7 @@ export default function Home({ blog }) {
 						</p>
 					</div>
 				</section>
+
 				<section className="portfolio">
 					<h2 className="title">PORTFOLIO</h2>
 					<ul className="portfolio_list">
