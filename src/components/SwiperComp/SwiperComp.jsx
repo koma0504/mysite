@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Pagination } from "swiper/core";
 
@@ -21,7 +22,7 @@ export function SwiperComp(slide) {
 				loop={true}
 			>
 				<SwiperSlide>
-					<img src="./img/qqq.jpg" alt="" />
+					<img src="./img/qqq.jpg" alt="aaa" />
 				</SwiperSlide>
 				<SwiperSlide>
 					<img src="./img/eee.jpg" alt="" />

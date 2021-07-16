@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-page-custom-font */
+/* eslint-disable react/jsx-no-duplicate-props */
 import Head from "next/head";
 import { Nav } from "../Nav/Nav";
 import { SwiperComp } from "../SwiperComp/SwiperComp";

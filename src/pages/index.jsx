@@ -4,12 +4,12 @@ import Image from "next/image";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { motion } from "framer-motion";
-import { Posts } from "../components/Posts";
+import { Postssssss } from "../components/Postssssss";
 
 export default function Home({ blog }) {
 	return (
 		<div className="body">
-			<Posts />
+			<Postssssss />
 
 			<Header title="RATIO OBSERVER" layout="swiper" />
 			<main className="main">

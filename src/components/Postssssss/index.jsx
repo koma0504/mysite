@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
 
-export const Posts = () => {
+export const Postssssss = () => {
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
