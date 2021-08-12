@@ -3,17 +3,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
-import { motion } from "framer-motion";
-import { Postssssss } from "../components/Postssssss";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
+// import { PostsTest } from "../components/PostsTest";
+import { useInView } from "react-intersection-observer";
 
 export default function Home({ blog }) {
+	console.log(blog);
+	const all = {
+		visible: { opacity: 1 },
+		hidden: { opacity: 0 },
+		transition: { when: "beforeChildren", staggerChildren: 0.3 },
+	};
+	const [ref, inView] = useInView({
+		rootMargin: "-50% 0px",
+		triggerOnce: true, // 最初の一度だけ実行
+	});
+	const [ref2, inView2] = useInView({
+		rootMargin: "-50% 0px",
+		triggerOnce: true, // 最初の一度だけ実行
+	});
 	return (
-		<div className="body">
-			<Postssssss />
-
+		<motion.div
+			className="body"
+			variants={all}
+			initial="hidden"
+			animate="visible"
+			exit="hidden"
+		>
+			{/* <PostsTest /> */}
 			<Header title="RATIO OBSERVER" layout="swiper" />
+
 			<main className="main">
-				<section className="about">
+				<section ref={ref} className={`${"about"} ${inView ? "show" : ""}`}>
 					<div className="inner">
 						<h2 className="title">ABOUT</h2>
 						<p className="text_inner">
@@ -21,8 +42,9 @@ export default function Home({ blog }) {
 						</p>
 					</div>
 				</section>
-
-				<section className="portfolio">
+				<section className="test">aas</section>
+				<section ref={ref2} className={`${"portfolio"} ${inView2 ? "show" : ""}`}>
+					{/* <section className="portfolio"> */}
 					<h2 className="title">PORTFOLIO</h2>
 					<ul className="portfolio_list">
 						{blog.map((blog) => (
@@ -32,8 +54,14 @@ export default function Home({ blog }) {
 										<motion.p whileHover={{ opacity: 1 }} className="">
 											{blog.title}
 										</motion.p>
-										{/* eslint-disable-next-line jsx-a11y/alt-text */}
-										{<Image src={blog.thumbnail.url} width={300} height={200} />}
+										{
+											<Image
+												src={blog.thumbnail.url}
+												width={300}
+												height={200}
+												alt={blog.title}
+											/>
+										}
 									</a>
 								</Link>
 							</li>
@@ -42,17 +70,7 @@ export default function Home({ blog }) {
 				</section>
 			</main>
 			<Footer />
-			<motion.div
-				className="overlay unmount"
-				exit={{ height: "100vh", zIndex: 9999, opacity: 1, visibility: "visible" }}
-			></motion.div>
-			<motion.div
-				className="overlay mount"
-				animate={{
-					top: "-100vh",
-				}}
-			></motion.div>
-		</div>
+		</motion.div>
 	);
 }
 

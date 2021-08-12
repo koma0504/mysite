@@ -3,21 +3,19 @@ import { motion } from "framer-motion";
 
 export default function about() {
 	return (
-		<div className="body">
+		<motion.div
+			className="body"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<Header title="about" />
 			<main className="main">
 				<h2>about</h2>
+				<p className="text_inner">
+					TEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなですTEXTtext漢字で実験文字サンプルテキストひらがなです
+				</p>
 			</main>
-			<motion.div
-				className="overlay unmount"
-				exit={{ height: "100vh", zIndex: 9999, opacity: 1, visibility: "visible" }}
-			></motion.div>
-			<motion.div
-				className="overlay mount"
-				animate={{
-					top: "-100vh",
-				}}
-			></motion.div>
-		</div>
+		</motion.div>
 	);
 }

@@ -6,7 +6,12 @@ import { motion } from "framer-motion";
 // pages/blog/[id].js
 export default function BlogId(props) {
 	return (
-		<div className="body">
+		<motion.div
+			className="body"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<Header title={props.blog.title} />
 			<main className="main">
 				<section className={styles.list}>
@@ -20,17 +25,7 @@ export default function BlogId(props) {
 				</section>
 			</main>
 			<Footer />
-			<motion.div
-				className="overlay unmount"
-				exit={{ height: "100vh", zIndex: 9999, opacity: 1, visibility: "visible" }}
-			></motion.div>
-			<motion.div
-				className="overlay mount"
-				animate={{
-					top: "-100vh",
-				}}
-			></motion.div>
-		</div>
+		</motion.div>
 	);
 }
 

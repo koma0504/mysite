@@ -1,5 +1,6 @@
 html {
 	font-size: 62.5%;
+	background-color: #4a4a50;
 }
 :root {
 	--font-xs: 0.8rem;
@@ -44,6 +45,9 @@ a:active {
 	display: grid;
 	gap: clamp(24px, 8vw, 120px);
 }
+section {
+	opacity: 0;
+}
 .inner {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -65,6 +69,8 @@ a:active {
 	.portfolio_list {
 		display: flex;
 		align-items: center;
+		width: fit-content;
+		margin: 0 auto;
 		a {
 			position: relative;
 			display: block;
@@ -109,4 +115,15 @@ a:active {
 .bbbbb {
 	padding: 50px;
 	position: relative;
+}
+.test {
+	height: 500px;
+}
+.hide {
+	opacity: 0;
+	transition: opacity 1000ms ease;
+}
+.show {
+	opacity: 1;
+	transition: opacity 1000ms ease;
 }

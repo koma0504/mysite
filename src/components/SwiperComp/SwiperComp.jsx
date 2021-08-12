@@ -9,7 +9,7 @@ import styles from "./swiper.module.scss";
 
 SwiperCore.use([EffectFade, Pagination]);
 
-export function SwiperComp(slide) {
+export function SwiperComp(props) {
 	return (
 		<>
 			<Swiper
